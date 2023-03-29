@@ -1,13 +1,12 @@
 <?php
-      if (!empty($_GET['q'])) {
-            switch ($_GET['q']) {
-                  case 'info':
-                        phpinfo();
-                        exit;
-                  break;
-            }
-      }
-
+    // --- GET variable listener for phpinfo link ---
+     if (!empty($_GET['q'])) {
+         switch ($_GET['q']) {
+             case 'info':
+                 phpinfo();
+                 exit;
+         }
+     }
 
     $dirs = array_filter(glob('*'), 'is_dir');
     asort($dirs);
@@ -76,7 +75,7 @@
                 </div>
             </div>
 
-            <div x-data="collection" x-init="getRecords()" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 grid-flow-cols p-10 bg-white border rounded-xl shadow-lg w-full break-normal">
+            <div x-data="collection" x-init="getRecords()" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 grid-flow-rows p-10 bg-white border rounded-xl shadow-lg w-full break-normal">
                 <template x-for="(item,index) in siteuri" :key="item.id">
                     <div class="flex items-center justify-between rounded-lg shadow hover:bg-indigo-100 hover:shadow-lg hover:rounded transition duration-150 ease-in-out transform hover:scale-105 ">
                         <a class="rounded-lg py-4 px-6 w-full block text-orange-600 hover:text-black font-semibold break-normal" target="_blank" x-bind:href="item.link" x-text="item.name"></a>

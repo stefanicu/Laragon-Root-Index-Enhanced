@@ -10,7 +10,7 @@ if (!empty($_GET['q']))
     }
 }
 
-
+// --- get sites from directory ---
 $dirs = array_filter(glob('*'), 'is_dir');
 asort($dirs);
 $i = 1;
